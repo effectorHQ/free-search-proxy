@@ -1,20 +1,37 @@
 # openclaw-free-search-proxy
 
-Search proxy API for the OpenClaw ecosystem, ultimate free use, powered by [DuckDuckGo](https://duckduckgo.com).
+[![CI – Simple tests](https://github.com/OpenClawHQ/free-search-proxy/actions/workflows/simple-tests.yml/badge.svg)](https://github.com/OpenClawHQ/free-search-proxy/actions/workflows/simple-tests.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-## API Overview
+Search proxy API for the OpenClaw ecosystem, powered by [DuckDuckGo](https://duckduckgo.com).
 
-All endpoints accept both **GET** and **POST**. Parameters:
+---
+
+## Overview
+
+`openclaw-free-search-proxy` wraps DuckDuckGo search endpoints behind a small HTTP service that is easy to call from OpenClaw Skills and Extensions.
+
+**Use cases:**
+
+- Web search from within an OpenClaw Skill
+- Lightweight “search tool” for agents (text / answers / images / videos)
+- Simple HTTP API you can host on Docker or Vercel
+
+**Base URLs:**
+
+- Local: `http://localhost:8000`
+- Hosted: `https://<your-domain>`
+
+---
+
+## API
+
+All endpoints accept both **GET** and **POST** and support the same parameters:
 
 - `q` (string, required): search query
 - `max_results` (int, optional, default `10`): maximum number of results to return
 
-Base URL examples:
-
-- Local: `http://localhost:8000`
-- Vercel / other hosting: `https://<your-domain>`
-
-### New v1 endpoints (recommended for OpenClaw)
+### v1 endpoints (recommended)
 
 - `GET /v1/search/text`
 - `GET /v1/search/answers`
@@ -39,9 +56,9 @@ Response:
 }
 ```
 
-### Legacy endpoints (kept for compatibility)
+### Legacy endpoints (compatibility)
 
-These routes are still available and return the original shape:
+The original routes are still available and return the older shape:
 
 - `GET /search`
 - `GET /searchAnswers`
@@ -54,7 +71,7 @@ They respond with:
 { "results": [ /* raw DuckDuckGo results */ ] }
 ```
 
-## Health check
+### Health
 
 - `GET /health` → `{"status": "ok"}`
 - `GET /` → basic service info and endpoint list
@@ -66,8 +83,8 @@ They respond with:
 ### Run directly
 
 ```bash
-docker build -t openclaw-search-proxy .
-docker run -p 8000:8000 openclaw-search-proxy
+docker build -t openclaw-free-search-proxy .
+docker run -p 8000:8000 openclaw-free-search-proxy
 ```
 
 Then visit:
@@ -80,8 +97,8 @@ Then visit:
 version: "3.8"
 
 services:
-  openclaw-search-proxy:
-    image: openclaw-search-proxy:latest
+  openclaw-free-search-proxy:
+    image: openclaw-free-search-proxy:latest
     build: .
     restart: always
     ports:
@@ -95,9 +112,9 @@ services:
 
 ## Vercel deployment
 
-You can still deploy on Vercel as a simple HTTP API (note: free plan limits and IP blocking may apply).
+You can deploy this API to Vercel as a simple Python service (note: free plan limits and IP blocking may apply).
 
-1. Fork `OpenClawHQ/openclaw-search-proxy` (this repo).
+1. Fork [`OpenClawHQ/free-search-proxy`](https://github.com/OpenClawHQ/free-search-proxy).
 2. Go to [vercel.com](https://vercel.com/) and log in with GitHub.
 3. Click **Import Project** → **Import Git Repository** and select your fork.
 4. Keep defaults and click **Deploy**.
@@ -110,7 +127,7 @@ curl "https://<your-vercel-domain>/v1/search/text?q=OpenClaw&max_results=3"
 
 ---
 
-## OpenClaw Integration Example (SKILL.md snippet)
+## OpenClaw integration example (`SKILL.md`)
 
 You can call this API from an OpenClaw Skill via `curl`:
 
@@ -119,7 +136,7 @@ You can call this API from an OpenClaw Skill via `curl`:
 
 ### search-web
 
-Use DuckDuckGo via openclaw-search-proxy to search the web.
+Use DuckDuckGo via openclaw-free-search-proxy to search the web.
 
 ```bash
 BASE_URL="http://localhost:8000"  # or your deployed URL
