@@ -1,6 +1,6 @@
 # openclaw-search-proxy
 
-Search proxy API for the OpenClaw ecosystem, powered by DuckDuckGo.
+Search proxy API for the OpenClaw ecosystem, powered by [DuckDuckGo](https://duckduckgo.com).
 
 ## API Overview
 
@@ -160,6 +160,5 @@ gunicorn -b 0.0.0.0:8000 app:app
 This project is based on and would not exist without:
 
 - [`binjie09/duckduckgo-api`](https://github.com/binjie09/duckduckgo-api)
-- [`Jah-yee/duckduckgo-api`](https://github.com/Jah-yee/duckduckgo-api)
 
 Original work is licensed under MIT; this fork stays MIT and adapts it for the OpenClawHQ organization and ecosystem.
