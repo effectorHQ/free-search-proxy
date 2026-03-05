@@ -1,8 +1,9 @@
-version: '3'
+version: "3.8"
 
 services:
-  duckduckgo-api:
-    image: binjie09/duckduckgo-api
+  openclaw-search-proxy:
+    image: openclaw-search-proxy:latest
+    build: .
     restart: always
     ports:
-      - "8304:8000"
+      - "8000:8000"

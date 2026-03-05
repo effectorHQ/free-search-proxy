@@ -1,7 +1,6 @@
 # openclaw-search-proxy
 
-Search proxy API for the OpenClaw ecosystem, powered by DuckDuckGo.  
-提供给 OpenClaw Skills / Extensions 使用的 DuckDuckGo 代理搜索服务。
+Search proxy API for the OpenClaw ecosystem, powered by DuckDuckGo.
 
 ## API Overview
 
