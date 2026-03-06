@@ -1,6 +1,6 @@
 # openclaw-free-search-proxy
 
-[![CI – Simple tests](https://github.com/OpenClawHQ/free-search-proxy/actions/workflows/simple-tests.yml/badge.svg)](https://github.com/OpenClawHQ/free-search-proxy/actions/workflows/simple-tests.yml)
+[![CI – Simple tests](https://github.com/effectorHQ/free-search-proxy/actions/workflows/simple-tests.yml/badge.svg)](https://github.com/effectorHQ/free-search-proxy/actions/workflows/simple-tests.yml)
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -129,7 +129,7 @@ services:
 
 You can deploy this API to Vercel as a simple Python service (note: free plan limits and IP blocking may apply).
 
-1. Fork [`OpenClawHQ/free-search-proxy`](https://github.com/OpenClawHQ/free-search-proxy).
+1. Fork [`effectorHQ/free-search-proxy`](https://github.com/effectorHQ/free-search-proxy).
 2. Go to [vercel.com](https://vercel.com/) and log in with GitHub.
 3. Click **Import Project** → **Import Git Repository** and select your fork.
 4. Keep defaults and click **Deploy**.
@@ -193,4 +193,4 @@ This project is based on and would not exist without:
 
 - [`binjie09/duckduckgo-api`](https://github.com/binjie09/duckduckgo-api)
 
-Original work is licensed under MIT; this fork stays MIT and adapts it for the OpenClawHQ organization and ecosystem.
+Original work is licensed under MIT; this fork stays MIT and adapts it for the effectorHQ organization and ecosystem.
